@@ -6,7 +6,7 @@ VAGRANTFILE_API_VERSION = '2'
 require './vagrant-provision-reboot-plugin'
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.box = <%= linuxdist %> # 'ubuntu/trusty64'
+  config.vm.box = <%= @linuxdist %> # 'ubuntu/trusty64'
   config.vm.hostname = <%= vmhostname %> # 'riak-2-0-ext'
   config.vm.network(:private_network, :ip => <%= ipaddr %>) # '192.168.56.40'
   
