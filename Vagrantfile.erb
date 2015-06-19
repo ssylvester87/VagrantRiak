@@ -7,18 +7,18 @@ require './vagrant-provision-reboot-plugin'
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = <%= @linuxdist %> # 'ubuntu/trusty64'
-  config.vm.hostname = <%= @vmhostname %> # 'riak-2-0-ext'
-  config.vm.network(:private_network, :ip => <%= @ipaddr %>) # '192.168.56.40'
+  config.vm.hostname = <%= vmhostname %> # 'riak-2-0-ext'
+  config.vm.network(:private_network, :ip => <%= ipaddr %>) # '192.168.56.40'
   
-  config.vm.synced_folder "<%= @rsyncdir %>", "/vagrant", type: "rsync"
+  config.vm.synced_folder "<%= rsyncdir %>", "/vagrant", type: "rsync"
 
   config.vm.provider :virtualbox do |v|
     v.gui = false
-    v.name = <%= @vname %> # 'Riak 2.0 External'
-    v.memory = <%= @mem %> # 1024
+    v.name = <%= vname %> # 'Riak 2.0 External'
+    v.memory = <%= mem %> # 1024
   end
 
-  riak_version = <%= @riakversion =>
+  riak_version = <%= riakversion =>
   # riak_major_version = 2
   # riak_minor_version = 0
   # riak_patch_version = 2
